@@ -4,21 +4,26 @@
 <div class="header">
     <div class="header-content">
         <nav class="navbar navbar-expand">
+            
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="header-left">
                     <div class="nav-item">
                         <div class="input-group search-area">
-                            <input type="text" class="form-control" placeholder="Find something here......">
+                            {{-- <input type="text" class="form-control" placeholder="Find something here......">
                             <span class="input-group-text"><a href="javascript:void(0)"><i
-                                        class="flaticon-381-search-2"></i></a></span>
+                                        class="flaticon-381-search-2"></i></a></span> --}}
                         </div>
                     </div>
                 </div>
+
                 <ul class="navbar-nav header-right">
-                    <li class="nav-item recipe">
+
+                    {{-- <li class="nav-item recipe">
                         <a href="javascript:void(0);" class="btn btn-primary btn-rounded">Recipe Guide</a>
-                    </li>
-                    <li class="nav-item dropdown notification_dropdown">
+                    </li> --}}
+
+
+                    {{-- <li class="nav-item dropdown notification_dropdown">
                         <a class="nav-link  ai-icon" href="javascript:void(0);" role="button"
                             data-bs-toggle="dropdown">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
@@ -104,8 +109,10 @@
                             <a class="all-notification" href="javascript:void(0);">See all notifications <i
                                     class="ti-arrow-end"></i></a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown notification_dropdown">
+                    </li> --}}
+
+
+                    {{-- <li class="nav-item dropdown notification_dropdown">
                         <a class="nav-link bell-link ai-icon" href="javascript:void(0);">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +128,9 @@
                             </svg>
                             <span class="badge light text-white bg-primary rounded-circle">5</span>
                         </a>
-                    </li>
+                    </li> --}}
+
+
                     <li class="nav-item dropdown  header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
                             <img src="assets/images/avatar/profile-1.jpg" width="56" alt="" />
@@ -134,7 +143,7 @@
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                     <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
-                                <span class="ms-2">Profile </span>
+                                <span class="ms-2">Profil </span>
                             </a>
                             <a href="email-inbox.html" class="dropdown-item ai-icon">
                                 <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success"
@@ -155,7 +164,7 @@
                                     <polyline points="16 17 21 12 16 7"></polyline>
                                     <line x1="21" y1="12" x2="9" y2="12"></line>
                                 </svg>
-                                <span class="ms-2">Logout </span>
+                                <span class="ms-2">Deconnexion </span>
                             </a>
                         </div>
                     </li>

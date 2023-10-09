@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -15,7 +16,8 @@ class AdminController extends Controller
      *
      * @return View
      */
-    function toLogin() : View {
+    function toLogin(): View
+    {
         return view("pages.login");
     }
 
@@ -24,10 +26,17 @@ class AdminController extends Controller
      * Get request to logue user admin
      *
      * @param Request $request
-     * @return View
+     * @return RedirectResponse
      */
-    function login(Request $request) : View {
-        var_export($request);
-        return view("admin.pages.dashboard");
+    function login(Request $request): RedirectResponse
+    {
+        $this->validate($request, [
+            "email" => "required|email",
+            "password" => "required"
+        ],[
+            "password.required"=>"Mot de passe obligatoire"
+        ]);
+      
+        return redirect()->route("index.dasboard");
     }
 }

@@ -35,6 +35,8 @@
 	<link href="{{asset('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet" type="text/css" />
 	<link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
 
+	@stack("style")
+
 
 </head>
 
@@ -747,7 +749,9 @@
 
 
     <div class="content-body">
-        @yield('contenu')
+		<div class="container-fluid">
+			@yield('contenu')
+		</div>
     </div>
 
 		<!--**********************************
@@ -798,6 +802,8 @@
 	<script src="{{asset('assets/js/deznav-init.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/js/demo.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/js/styleSwitcher.js')}}" type="text/javascript"></script>
+
+	@stack("script")
 
 
 </body>
