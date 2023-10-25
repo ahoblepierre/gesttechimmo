@@ -19,7 +19,7 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form>
+                    <form action="{{route("search.service")}}" method="GET" id="formSearch">
                         <div class="row">
 
                             <div class="mb-3 row">
@@ -27,21 +27,21 @@
                                     <label for="">Titre ou description</label>
                                     <input type="text"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Titre" name="titre" required>
+                                        placeholder="Titre" name="titre_or_description" required>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <label for="">Date debut</label>
                                     <input type="date"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Date" name="date" required>
+                                        placeholder="Date" name="debut" >
                                 </div>
 
                                 <div class="col-lg-4">
                                     <label for="">Date fin</label>
                                     <input type="date"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Date" name="fin" required>
+                                        placeholder="Date" name="fin" >
                                 </div>
 
                                 <div class="col-lg-4 mt-3">
@@ -59,7 +59,7 @@
                       
                        
                         <div class="mt-3">
-                            <button type="button" class="btn btn-primary">Rechercher</button>
+                            <button type="submit" class="btn btn-primary" form="formSearch">Rechercher</button>
                         </div>
                     </form>
                 </div>
@@ -89,47 +89,40 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($services  as $key=> $service)
                                 <tr>
-                                    <td><strong>01</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-success">Successful</span></td>
+                                    <td><strong>{{$key >=10?  $key  :'0'.$key+1  }}</strong></td>
+                                    <td>{{$service->title}}</td>
+                                    <td>{!! $service->description !!}</td>
+                                    <td>{{ $service->created_at }}</td>
+                                    @switch($service->statut)
+                                        @case(0)
+                                        <td><span class="badge light badge-danger">Inactif</span></td>
+                                            @break
+                                        @case(1)
+                                        <td><span class="badge light badge-success">Actif</span></td>
+                                            @break
+                                        @default
+                                            
+                                    @endswitch
+                                    
                                     <td>
                                         <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="{{route("show.service",["id"=>$service->id])}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
+                                            <a href="{{route("changeStaut.service",["id"=>$service->id])}}" class="btn btn-danger shadow btn-xs sharp me-1"><i class="{{$service->statut==1?'fa fa-times-circle':' fa fa-check'}}"></i></a>
+                                            <a href="{{route("destroy.service",["id"=>$service->id])}}" class="btn btn-danger shadow btn-xs sharp" onclick="return window.confirm('Voulez-vous supprimer ce service ?')" ><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><strong>02</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-danger">Canceled</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>03</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-warning">Pending</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                    
+                                @endforeach
+                               
+                               
                             </tbody>
                         </table>
+                        {{-- <div class="d-flex">
+                            {{$services->links()}}
+                        </div> --}}
                     </div>
                 </div>
             </div>

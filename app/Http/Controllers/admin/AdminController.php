@@ -5,10 +5,13 @@ namespace App\Http\Controllers\admin;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
 
 
     /**
@@ -30,13 +33,35 @@ class AdminController extends Controller
      */
     function login(Request $request): RedirectResponse
     {
+
+        // User::create(array(
+        //     "email"=>"admin@gestimmo.com",
+        //     "password"=>"12345678",
+        //     "name"=>"Admin Pierre"
+        // ));
+
         $this->validate($request, [
             "email" => "required|email",
             "password" => "required"
-        ],[
-            "password.required"=>"Mot de passe obligatoire"
+        ], [
+            "password.required" => "Mot de passe obligatoire",
+            "email" => "Email invalide",
+            "email.required" => "Email obligatoire"
         ]);
-      
-        return redirect()->route("index.dasboard");
+
+        $input = $request->only(["email", "password"]);
+
+        if (Auth::attempt($input)) {
+            return redirect()->route("index.dasboard");
+        } else {
+            return redirect()->back()->withErrors(["email" => "Utilisateur introuvable"]);
+        }
+    }
+
+
+    function toLogout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route("login");
     }
 }

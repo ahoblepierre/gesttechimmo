@@ -46,8 +46,8 @@
                     <span class="nav-text">Formation</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route("index.formation")}}">Ajouter une formation</a></li>
-                    <li><a href="{{route("create.formation")}}">Liste des formations</a></li>
+                    <li><a href="{{route("create.formation")}}">Ajouter une formation</a></li>
+                    <li><a href="{{route("index.formation")}}">Liste des formations</a></li>
                     <li><a href="post-details.html">Liste des inscriptions</a></li>
                 </ul>
             </li>
@@ -61,10 +61,20 @@
                 <li><a href="{{route("create.article")}}">Ajouter un article</a></li>
                 <li><a href="{{route("index.article")}}">Liste des articles</a></li>
             </ul>
+
+            {{-- Category  --}}
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-381-file"></i>
+                <span class="nav-text">Categorie</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route("create.category")}}">Ajouter une categorie</a></li>
+                <li><a href="{{route("index.category")}}">Liste des categories</a></li>
+            </ul>
         </li>
 
         <li>
-            <a class="ai-icon" href="#"> 
+            <a class="ai-icon" href="{{route("to.logout")}}"> 
                 <i class="flaticon-070-power"></i>
                 <span class="nav-text">Deconnexion</span>
             </a>

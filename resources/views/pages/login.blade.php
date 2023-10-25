@@ -48,7 +48,7 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control @error("email") is-invalid @enderror"" value="hello@example.com" name="email" required>
+                                            <input type="email" class="form-control @error("email") is-invalid @enderror"" value="{{ old("email")}}" name="email" required  placeholder="hello@example.com">
                                             @error("email")
                                             <span class="invalid-feedback mt-2">{{$message}}</span>
                                             @enderror

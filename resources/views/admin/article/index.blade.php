@@ -19,7 +19,7 @@
             </div>
             <div class="card-body">
                 <div class="basic-form">
-                    <form>
+                    <form action="{{route("search.article")}}" method="GET">
                         <div class="row">
 
                             <div class="mb-3 row">
@@ -34,14 +34,14 @@
                                     <label for="">Date debut</label>
                                     <input type="date"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Date" name="date" required>
+                                        placeholder="Date" name="date" >
                                 </div>
 
                                 <div class="col-lg-4">
                                     <label for="">Date fin</label>
                                     <input type="date"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Date" name="fin" required>
+                                        placeholder="Date" name="fin" >
                                 </div>
 
                                 <div class="col-lg-4 mt-3">
@@ -59,7 +59,7 @@
                       
                        
                         <div class="mt-3">
-                            <button type="button" class="btn btn-primary">Rechercher</button>
+                            <button type="submit" class="btn btn-primary">Rechercher</button>
                         </div>
                     </form>
                 </div>
@@ -83,51 +83,45 @@
                                     <th style="width:80px;"><strong>#</strong></th>
                                     <th><strong>TITRE</strong></th>
                                     <th><strong>DESCRIPTION</strong></th>
-                                    <th><strong>DATE</strong></th>
+                                    <th><strong>CATEGORIE</strong></th>
+                                    <th><strong>DATE DE CREATION</strong></th>
                                     <th><strong>STATUS</strong></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><strong>01</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-success">Successful</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>02</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-danger">Canceled</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>03</strong></td>
-                                    <td>Mr. Bobby</td>
-                                    <td>Dr. Jackson</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-warning">Pending</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
-                                            <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @forelse ($articles as $key=> $article)
+                                    <tr>
+                                        <td><strong> {{$key}} </strong></td>
+                                        <td>{{$article->title}}</td>
+                                        <td>{!!\Str::words($article->description, 20,'...') !!}</td>
+                                        <td>{{$article->category->title??""}}</td>
+                                        <td>{{$article->created_at}}</td>
+                                        <td>
+                                            @switch($article->statut)
+                                            @case(0)
+                                            <td><span class="badge light badge-danger">Inactif</span></td>
+                                                @break
+                                            @case(1)
+                                            <td><span class="badge light badge-success">Actif</span></td>
+                                                @break
+                                            @default
+                                                
+                                        @endswitch
+                                        </td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a href="{{route("show.article",['id'=>$article->id])}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fa fa-pen"></i></a>
+                                                <a href="{{route("changer.article",["id"=>$article->id])}}" class="btn btn-danger shadow btn-xs sharp me-1"><i class="{{$article->statut===1?'fa fa-times-circle':' fa fa-check'}}"></i></a>
+                                                <a href="{{route('destroy.article',['id'=>$article->id])}}" onclick="return window.confirm('Voulez-vous supprimer cet articles ?')" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <p>Aucun article ....</p>
+                                @endforelse
+                               
+                               
                             </tbody>
                         </table>
                     </div>

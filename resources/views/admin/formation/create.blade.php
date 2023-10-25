@@ -14,11 +14,12 @@
         <div class="col-xl-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Ajouter un service</h4>
+                    <h4 class="card-title">Ajouter une formation</h4>
                 </div>
                 <div class="card-body">
                     <div class="basic-form">
-                        <form>
+                        <form action="{{route("store.formation")}}" method="POST" enctype="multipart/form-data" id="formFormation">
+                            @csrf
                             <div class="mb-3 row">
                                 <label class="col-lg-4 col-form-label" >Titre
                                     <span class="text-danger">*</span>
@@ -26,37 +27,42 @@
                                 <div class="col-lg-12">
                                     <input type="text"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Titre" name="titre" required>
+                                        placeholder="Titre" name="titre" required {{old("titre")}}>
                                 </div>
                                 @error('titre')
-                                    <span class="invalid-feedback mt-2">{{ $message }}</span>
+                                    <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3 row">
                                 <label class="col-lg-4 col-form-label" for="description">Description
                                     <span class="text-danger">*</span>
                                 </label>
-                                <div class="custom-ekeditor  @error('description') is-invalid @enderror">
-                                    <div id="ckeditor"></div>
+                                <div class="col-lg-12">
+                                    <textarea name="content" class="form-control" id="editor"> {{old("content")}}</textarea>
                                 </div>
-                                @error('titre')
-                                    <span class="invalid-feedback mt-2">{{ $message }}</span>
+                                {{-- <div class="custom-ekeditor  @error('description') is-invalid @enderror">
+                                    <div id="ckeditor"></div>
+                                </div> --}}
+                                @error('content')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label class="col-lg-4 col-form-label" for="validationCustom01">Image du Service
+                                <label class="col-lg-4 col-form-label" for="validationCustom01">Image de la formation
                                     <span class="text-danger">*</span>
                                 </label>
                                 <div class="form-file">
-                                    <input type="file"
-                                        class="form-file-input form-control  @error('titre') is-invalid @enderror" required>
+                                    <input type="file" name="file"
+                                        class="form-file-input form-control  @error('file') is-invalid 
+                                        @enderror" required accept=".png,.jpeg,jpg"
+                                    >
                                 </div>
                                 @error('file')
-                                    <span class="invalid-feedback mt-2">{{ $message }}</span>
+                                    <span class="text-danger mt-4">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mt-3">
-                                <button type="button" class="btn btn-primary">Ajouter</button>
+                                <button type="submit" class="btn btn-primary" form="formFormation">Ajouter</button>
                             </div>
                         </form>
                     </div>

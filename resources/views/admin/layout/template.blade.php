@@ -27,15 +27,16 @@
 
 	<!-- Style css -->
 
-	<link href="{{asset('assets/vendor/chartist/css/chartist.min.css')}}" rel="stylesheet" type="text/css" />
+	{{-- <link href="{{asset('assets/vendor/chartist/css/chartist.min.css')}}" rel="stylesheet" type="text/css" /> --}}
 
 
 
+	@stack("style")
+    <link href="{{asset('assets/vendor/select2/css/select2.min.css" rel="stylesheet')}}" type="text/css" />
 
 	<link href="{{asset('assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet" type="text/css" />
 	<link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
 
-	@stack("style")
 
 
 </head>
@@ -68,7 +69,7 @@
             Nav header start
         ***********************************-->
 		<div class="nav-header">
-			<a href="index.html" class="brand-logo">
+			<a href="{{route("index.dasboard")}}" class="brand-logo">
 				<svg class="logo-abbr" width="56" height="56" viewBox="0 0 56 56" fill="none"
 					xmlns="http://www.w3.org/2000/svg">
 					<path class="rect-primary-rect"
@@ -98,8 +99,6 @@
 						d="M115.371 34C113.099 34 111.323 33.36 110.043 32.08C108.763 30.8 108.123 29.04 108.123 26.8V15.472H104.091V9.376H108.123V3.376H115.611V9.376H122.379V15.472H115.611V26.368C115.611 26.784 115.739 27.12 115.995 27.376C116.251 27.632 116.587 27.76 117.003 27.76H122.379V34H115.371ZM138.273 34.576C135.745 34.576 133.473 34.016 131.457 32.896C129.441 31.776 127.841 30.256 126.657 28.336C125.505 26.384 124.929 24.176 124.929 21.712C124.929 19.248 125.505 17.056 126.657 15.136C127.841 13.184 129.441 11.648 131.457 10.528C133.473 9.376 135.745 8.8 138.273 8.8C140.801 8.8 143.057 9.376 145.041 10.528C147.057 11.648 148.641 13.184 149.793 15.136C150.977 17.056 151.569 19.248 151.569 21.712C151.569 24.176 150.977 26.384 149.793 28.336C148.641 30.256 147.057 31.776 145.041 32.896C143.025 34.016 140.769 34.576 138.273 34.576ZM138.273 28.096C140.033 28.096 141.441 27.488 142.497 26.272C143.553 25.024 144.081 23.488 144.081 21.664C144.081 19.872 143.553 18.368 142.497 17.152C141.441 15.904 140.033 15.28 138.273 15.28C136.481 15.28 135.057 15.904 134.001 17.152C132.945 18.368 132.417 19.872 132.417 21.664C132.417 23.488 132.945 25.024 134.001 26.272C135.057 27.488 136.481 28.096 138.273 28.096ZM159.635 34.576C158.355 34.576 157.251 34.128 156.323 33.232C155.427 32.304 154.979 31.216 154.979 29.968C154.979 28.688 155.427 27.6 156.323 26.704C157.251 25.776 158.355 25.312 159.635 25.312C160.883 25.312 161.955 25.776 162.851 26.704C163.779 27.6 164.243 28.688 164.243 29.968C164.243 31.216 163.779 32.304 162.851 33.232C161.955 34.128 160.883 34.576 159.635 34.576Z"
 						fill="#202020" />
 				</svg>
-
-
 			</a>
 			<div class="nav-control">
 				<div class="hamburger">
@@ -747,8 +746,12 @@
 
 	@include('admin.layout.sidebar')
 
+	
 
     <div class="content-body">
+
+		@include("admin.layout.alert")
+
 		<div class="container-fluid">
 			@yield('contenu')
 		</div>
@@ -763,7 +766,7 @@
 ***********************************-->
 		<div class="footer">
 			<div class="copyright">
-				<p>Copyright © Designed &amp; Developed by <a href="https://dexignzone.com/"
+				<p>Copyright © Designed &amp; Developed by <a href="#"
 						target="_blank">Pierre AHOBLE</a> {{now()->format('Y')}}</p>
 			</div>
 		</div>
@@ -791,19 +794,39 @@
 	<!--**********************************
         Scripts
     ***********************************-->
-
+	
 	<script src="{{asset('assets/vendor/global/global.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('assets/vendor/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/vendor/chart.js/Chart.bundle.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/vendor/apexchart/apexchart.js')}}" type="text/javascript"></script>
+
+	{{-- <script src="{{asset('assets/vendor/apexchart/apexchart.js')}}" type="text/javascript"></script> --}}
 	<script src="{{asset('assets/vendor/peity/jquery.peity.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/js/dashboard/dashboard-1.js')}}" type="text/javascript"></script>
+	{{-- <script src="{{asset('assets/js/dashboard/dashboard-1.js')}}" type="text/javascript"></script> --}}
 	<script src="{{asset('assets/js/custom.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/js/deznav-init.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/js/demo.js')}}" type="text/javascript"></script>
+	{{-- <script src="{{asset('assets/js/demo.js')}}" type="text/javascript"></script> --}}
 	<script src="{{asset('assets/js/styleSwitcher.js')}}" type="text/javascript"></script>
+	
+	<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+	<script>
+        $(document).ready(function() {
+
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.log(error);
+                });
+
+        })
+        // Supposons que CKEditor soit initialisé sur #ckeditor
+    </script>
 
 	@stack("script")
+
+	
+	
 
 
 </body>
