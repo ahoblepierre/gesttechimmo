@@ -64,7 +64,7 @@ class ServiceController extends Controller
             "file" => "required|mimes:png,jpg,jpeg"
         ]);
 
-        $imagePath = $this->storeFile($request->file('file'));
+        $imagePath = $this->storeFile($request->file('file'), $width=230, $heigth=228);
 
         
         Service::create(
@@ -111,7 +111,7 @@ class ServiceController extends Controller
         $service = Service::where("id", $id)->first();
         if (!empty($service)) {
             $statut =  $service->staut === 0 ? 1 : 0;
-           $hosp= Service::where("id", $id)->update([
+           $service= Service::where("id", $id)->update([
                 'statut' => $statut
             ]);
 
@@ -152,9 +152,10 @@ class ServiceController extends Controller
             Session::flash("error", "Service introuvable");
             return redirect()->back();
         }
-        $imagePath = $request->hasFile('file')? $this->storeFile($request->file('file')): $service->image_url;
+        $imagePath = $request->hasFile('file')? $this->storeFile($request->file('file'), $width=230, $heigth=195): $service->image_url;
         $service->title = $request->titre;
         $service->description = $request->content;
+        $service->image_url = $imagePath;
 
         $service->save();
 

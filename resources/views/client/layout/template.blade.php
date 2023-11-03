@@ -58,6 +58,8 @@
     <!-- toolbar css -->
     <link rel="stylesheet" href="{{asset('client/vendors/toolbar/css/toolbar.css')}}">
 
+    @yield('style')
+
 
 </head>
 

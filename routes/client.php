@@ -15,7 +15,7 @@ Route::get("nos-services",[ClientController::class,"nosService"])->name("nosserv
 
 Route::get("nos-formation",[ClientController::class,"nosFormations"])->name("nosformations");
 
-
+Route::get("formation/{slug}/details/{id}",[ClientController::class,"detailFormation"])->name("detail.formations");
 
 
 Route::get("blog",[ClientController::class,"blog"])->name("blog");

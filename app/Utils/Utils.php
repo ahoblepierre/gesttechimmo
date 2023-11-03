@@ -17,7 +17,7 @@ trait Utils
      * @param [type] $file
      * @return string
      */
-    public function storeFile($file): string
+    public function storeFile($file, $width =370, $heigth=253): string
     {
         if (!empty($file)) {
             // Générez un nom de fichier unique pour éviter les collisions.
@@ -25,9 +25,10 @@ trait Utils
 
             $image = Image::make($file);
 
-            $image->resize(370, 253, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+            $image->resize($width, $heigth);
+            // , function ($constraint) {
+            //     $constraint->aspectRatio();
+            // }
 
             $relativePath = 'images/' . $fileName; // Chemin relatif où vous stockez le fichier
 

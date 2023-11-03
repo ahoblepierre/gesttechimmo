@@ -117,6 +117,10 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    {{$formations->links()}}
+                </div>
             </div>
         </div>
     </div>

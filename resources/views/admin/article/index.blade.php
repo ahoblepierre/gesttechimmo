@@ -126,6 +126,10 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="d-flex justify-content-center align-items-center">
+                        {{ $articles->links()}}
+                </div>
             </div>
         </div>
     </div>

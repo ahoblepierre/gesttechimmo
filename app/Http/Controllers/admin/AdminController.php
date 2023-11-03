@@ -54,7 +54,12 @@ class AdminController extends Controller
         if (Auth::attempt($input)) {
             return redirect()->route("index.dasboard");
         } else {
-            return redirect()->back()->withErrors(["email" => "Utilisateur introuvable"]);
+            return redirect()->back()->withErrors(
+                [
+                    "email" => "Email ou Mot de passe incorrecte",
+                    "password"=>"Mot de passe incorrecte"
+                ]
+            )->withInput();
         }
     }
 

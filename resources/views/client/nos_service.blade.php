@@ -1,8 +1,12 @@
 @extends("client.layout.template",['title'=>'Nos Service'])
 
+@section('style')
+<style>
+
+</style>
+    
+@endsection
 @section('contenu')
-
-
 
    
     <!--Page Header Start-->
@@ -93,73 +97,63 @@
     <!--Welcome Two End-->
 
     <!--Feature Two Start-->
-    <section class="feature-two">
+    {{-- <section class="feature-two">
         <div class="container">
             <div class="row">
+                @foreach ($services as $service)
                 <!--Feature Two Single Start-->
                 <div class="col-xl-4 col-lg-4">
                     <div class="feature-two__single">
                         <div class="feature-two__single-inner">
                             <div class="feature-two__img">
-                                <img src="assets/images/resources/feature-2-1.jpg" alt="">
+                                <img src="{{$service->image_url}}" alt="">
                                 <div class="feature-two__letter">
-                                    <h5>g</h5>
+                                    <h5>{{substr($service->title,0,1)}}</h5>
                                 </div>
                             </div>
                             <div class="feature-two__content">
-                                <h4 class="feature-two__title"><a href="about.html">Gaming and <br>
-                                        entertainment</a></h4>
-                                <p class="feature-two__text">Lorem Ipsum is dummy text of the new design printng and
-                                    type setting Ipsum has been the is industrys.</p>
+                                <h4 class="feature-two__title"><a href="#">{{$service->title}}</a></h4>
+                                <p class="feature-two__text">{!! Str::words($service->description,10, ' ...') !!}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--Feature Two Single End-->
-                <!--Feature Two Single Start-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="feature-two__single">
-                        <div class="feature-two__single-inner">
-                            <div class="feature-two__img">
-                                <img src="assets/images/resources/feature-2-2.jpg" alt="">
-                                <div class="feature-two__letter">
-                                    <h5>b</h5>
-                                </div>
-                            </div>
-                            <div class="feature-two__content">
-                                <h4 class="feature-two__title"><a href="about.html">Business and <br> finance</a>
-                                </h4>
-                                <p class="feature-two__text">Lorem Ipsum is dummy text of the new design printng and
-                                    type setting Ipsum has been the is industrys.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Feature Two Single End-->
-                <!--Feature Two Single Start-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="feature-two__single">
-                        <div class="feature-two__single-inner">
-                            <div class="feature-two__img">
-                                <img src="assets/images/resources/feature-2-3.jpg" alt="">
-                                <div class="feature-two__letter">
-                                    <h5>t</h5>
-                                </div>
-                            </div>
-                            <div class="feature-two__content">
-                                <h4 class="feature-two__title"><a href="about.html">Information and <br>
-                                        technology</a></h4>
-                                <p class="feature-two__text">Lorem Ipsum is dummy text of the new design printng and
-                                    type setting Ipsum has been the is industrys.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Feature Two Single End-->
+                @endforeach
             </div>
+          
         </div>
-    </section>
+    </section> --}}
     <!--Feature Two End-->
+    
+            <!--Delivering IT Start-->
+            <section class="delivering-it delivering-it-two">
+                <div class="container">
+                    <div class="delivering-it__bottom">
+                        <div class="row">
+                            @foreach ($services as $service)
+                            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                                <!--Delivering IT Single-->
+                                <div class="delivering-it__single">
+                                    <div class="delivering-it__img">
+                                        <img src="{{$service->image_url}}" alt="">
+                                    </div>
+                                    <div class="delivering-it__content">
+                                        <h5 class="delivering-it__content-title">{{$service->title}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                            <div class="blog-pagination d-flex justify-content-center align-items-center">
+                                {{ $services->links()}}
+                            </div>
+
+                    
+                        </div>
+                    </div>
+                </div>
+            </section>
 
     <!--Business From Start-->
     <section class="business-from">

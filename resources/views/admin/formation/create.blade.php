@@ -40,9 +40,6 @@
                                 <div class="col-lg-12">
                                     <textarea name="content" class="form-control" id="editor"> {{old("content")}}</textarea>
                                 </div>
-                                {{-- <div class="custom-ekeditor  @error('description') is-invalid @enderror">
-                                    <div id="ckeditor"></div>
-                                </div> --}}
                                 @error('content')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror

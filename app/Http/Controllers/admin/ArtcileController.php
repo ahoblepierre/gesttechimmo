@@ -26,7 +26,7 @@ class ArtcileController extends Controller
      */
     public function index(): View
     {
-        $articles = Article::latest()->paginate();
+        $articles = Article::latest()->paginate(10);
         
         // mailer()->to('laravel@gmail.com')->send(new InscriptionMail());
 

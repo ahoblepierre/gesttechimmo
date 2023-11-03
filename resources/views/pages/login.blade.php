@@ -50,14 +50,14 @@
                                             <label class="mb-1"><strong>Email</strong></label>
                                             <input type="email" class="form-control @error("email") is-invalid @enderror"" value="{{ old("email")}}" name="email" required  placeholder="hello@example.com">
                                             @error("email")
-                                            <span class="invalid-feedback mt-2">{{$message}}</span>
+                                            <span class="text-danger mt-2">{{$message}}</span>
                                             @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control @error("password") is-invalid @enderror" value="" name="password" required>
+                                            <input type="password" class="form-control @error("password") is-invalid @enderror" value="{{old("password")}}" name="password" required>
                                             @error("password")
-                                            <span class="invalid-feedback mt-2">{{$message}}</span>
+                                            <span class="text-danger mt-2">{{$message}}</span>
                                             @enderror
                                         </div>
                                         {{-- <div class="row d-flex justify-content-between mt-4 mb-2">

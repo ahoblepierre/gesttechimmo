@@ -8,7 +8,7 @@
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
-                <a class="ai-icon" href="#"> 
+                <a class="ai-icon" href="{{route("index.dasboard")}}"> 
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>

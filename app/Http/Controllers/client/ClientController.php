@@ -6,6 +6,8 @@ use App\Models\Contact;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Formation;
+use App\Models\Service;
 use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
@@ -26,7 +28,8 @@ class ClientController extends Controller
 
     public function nosService()
     {
-        return view("client.nos_service");
+        $services = Service::where('statut',1)->latest()->paginate(6);
+        return view("client.nos_service", compact('services'));
     }
 
     public function blog()
@@ -47,7 +50,8 @@ class ClientController extends Controller
 
     function nosFormations(): View
     {
-        return view('client.nos_formations');
+        $formations = Formation::where('statut',1)->latest()->paginate(6);
+        return view('client.nos_formations', compact("formations"));
     }
 
     /**
@@ -78,6 +82,14 @@ class ClientController extends Controller
         Session::flash("success", "Votre demande a été prise en compte, nous vous contacterons");
         return redirect()->back();
 
+    }
+
+
+    function detailFormation($slug,$id)  {
+        $formation = Formation::where('id', $id)->first();
+        return view("client.detail_formation",[
+            'formation'=>$formation
+        ]);
     }
 
     /**

@@ -16,18 +16,19 @@ class FormationController extends Controller
 
     use Utils;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware(['auth']);
     }
 
 
-    
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View
     {
-        $formations = Formation::latest()->paginate();
+        $formations = Formation::latest()->paginate(5);
         return view("admin.formation.index", [
             'formations' => $formations,
         ]);
@@ -56,7 +57,7 @@ class FormationController extends Controller
             "file" => "required|mimes:png,jpg,jpeg"
         ]);
 
-        $imagePath = $this->storeFile($request->file('file'));
+        $imagePath = $this->storeFile($request->file('file'), $heigth = 346);
 
 
         Formation::create(
@@ -103,21 +104,21 @@ class FormationController extends Controller
      */
     public function update(Request $request, $id): RedirectResponse
     {
-        $formation = Formation::where('id',$id)->first();
+        $formation = Formation::where('id', $id)->first();
         if (empty($formation)) {
             Session::flash("error", "formation introuvable ...");
-           return redirect()->back();
+            return redirect()->back();
         }
 
-        $imagePath = $request->hasFile('file')? $this->storeFile($request->file): $formation->image_url;
+        $imagePath = $request->hasFile('file') ? $this->storeFile($request->file, $heigth = 346) : $formation->image_url;
 
-        $formation->title =$request->titre;
-        $formation->description =$request->content;
-        $formation->image_url =$imagePath;
+        $formation->title = $request->titre;
+        $formation->description = $request->content;
+        $formation->image_url = $imagePath;
         $formation->save();
 
         Session::flash("success", "formation mise à jour avec succès...");
-       return redirect()->route("index.formation");
+        return redirect()->route("index.formation");
     }
 
     /**
@@ -144,12 +145,14 @@ class FormationController extends Controller
     function changerStatut($id): RedirectResponse
     {
         $formation = Formation::where("id", $id)->first();
+        // dd($formation->statut, 'ici');
         if (!empty($formation)) {
-            $statut =  $formation->staut === 0 ? 1 : 0;
-           $formation= Formation::where("id", $id)->update([
+            $statut = $formation->statut === 0 ? 1 : 0;
+            $formation = Formation::where("id", $id)->update([
                 'statut' => $statut
             ]);
 
+            // dd($formation);
             Session::flash("success", "Formation statut modifié avec succes");
             return redirect()->back();
         }
@@ -168,13 +171,13 @@ class FormationController extends Controller
         $formations = Formation::when($request->titre_or_description, function ($query) use ($request) {
             $query->where('title', 'like', '%' . $request->titre_or_description . '%')
                 ->orWhere('description', 'like', '%' . $request->titre_or_description . '%');
-        })->when($request->date, function($query) use($request) {
+        })->when($request->date, function ($query) use ($request) {
             $query->whereDate('created_at', $request->date);
         })
-        ->when($request->fin, function($query) use($request) {
-            $query->whereDate('created_at', $request->fin);
-        })
-        ->paginate(10);
+            ->when($request->fin, function ($query) use ($request) {
+                $query->whereDate('created_at', $request->fin);
+            })
+            ->paginate(10);
         return view("admin.formation.index", [
             "formations" => $formations,
         ]);

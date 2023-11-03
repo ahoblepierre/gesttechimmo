@@ -68,5 +68,5 @@
 @endsection
 
 @push('script')
-    {{-- <script src="{{ asset('assets/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script> --}}
+    <script src="{{ asset('assets/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
 @endpush

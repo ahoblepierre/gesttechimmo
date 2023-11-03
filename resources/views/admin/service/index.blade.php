@@ -120,10 +120,11 @@
                                
                             </tbody>
                         </table>
-                        {{-- <div class="d-flex">
-                            {{$services->links()}}
-                        </div> --}}
+                        
                     </div>
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    {{$services->links()}}
                 </div>
             </div>
         </div>
@@ -131,5 +132,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('assets/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+    {{-- <script src="{{ asset('assets/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script> --}}
 @endpush

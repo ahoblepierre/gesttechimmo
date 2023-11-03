@@ -1,6 +1,8 @@
 @extends('admin.layout.template')
 
 @push('style')
+
+
 @endpush
 
 @section('contenu')
@@ -37,11 +39,10 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-12">
-                                    <textarea name="content" class="form-control" id="editor"> {{old("content")}}</textarea>
+                                    <textarea name="content" class="form-control" id="editor" cols="10"> {{old("content")}}</textarea>
                                 </div>
-                                {{-- <div class="custom-ekeditor  @error('description') is-invalid @enderror">
-                                    <div id="ckeditor"></div>
-                                </div> --}}
+    
+                        
                                 @error('content')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
