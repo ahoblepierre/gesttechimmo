@@ -166,16 +166,21 @@ class ArtcileController extends Controller
      * @param Request $request
      * @return View
      */
-    public function search(Request $request): View
+    public function search(Request $request)
     {
-        $article = Article::when($request->titre_or_description, function ($query) use ($request) {
-            $query->where('title', 'like', '%' . $request->titre_or_description . '%')
-                ->orWhere('description', 'like', '%' . $request->titre_or_description . '%');
-        })->when($request->date, function($query) use($request) {
-            $query->whereDate('created_at', $request->date);
+
+       
+        $article = Article::when(!empty($request->titre), function ($query) use ($request) {
+            var_export('je suis venu');
+           return $query->where('title', 'like', '%' . $request->titre )
+            ->orWhere('description', 'like', '%' . $request->titre_or_description);
         })
-        ->when($request->fin, function($query) use($request) {
-            $query->whereDate('created_at', $request->fin);
+        ->when(!empty($request->statut), function($query) use($request) {
+           
+            return  $query->where('statut', $request->statut);
+          })
+        ->when(!empty($request->date) && !empty($request->fin), function($query) use($request) {
+          return  $query->whereBetween('created_at', [$request->date, $request->fin]);
         })
         ->paginate(10);
         return view("admin.article.index", [

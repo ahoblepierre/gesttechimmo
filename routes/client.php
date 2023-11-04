@@ -20,7 +20,7 @@ Route::get("formation/{slug}/details/{id}",[ClientController::class,"detailForma
 
 Route::get("blog",[ClientController::class,"blog"])->name("blog");
 
-Route::get("blog/detail",[ClientController::class,"blogDetail"])->name("blog.detail");
+Route::get("blog/detail/{id}/{slug}",[ClientController::class,"blogDetail"])->name("blog.detail");
 
 
 ################################################################################

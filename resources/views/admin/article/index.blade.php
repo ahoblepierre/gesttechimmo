@@ -27,7 +27,7 @@
                                     <label for="">Titre ou description</label>
                                     <input type="text"
                                         class="form-control input-default @error('titre') is-invalid @enderror"
-                                        placeholder="Titre" name="titre" required>
+                                        placeholder="Titre" name="titre" >
                                 </div>
 
                                 <div class="col-lg-4">
@@ -46,7 +46,8 @@
 
                                 <div class="col-lg-4 mt-3">
                                     <label for="">Statut</label>
-                                    <select class="default-select form-control wide mb-3">
+                                    <select class="default-select form-control wide mb-3" name="statut">
+                                        <option value="">Tous</option>
                                         <option value="1">Active</option>
                                         <option value="0">Desactive</option>
                                     </select>

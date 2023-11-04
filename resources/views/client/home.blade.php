@@ -171,74 +171,31 @@
 <section class="feature-one">
     <div class="container">
         <div class="row">
+
+            @foreach ($services as $service)
             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                 <!--Feature One Single-->
                 <div class="feature-one__single">
                     <div class="feature-one__img">
-                        <img src="client/images/resources/feature-1-1.jpg" alt="">
+                        <img src="{{$service->image_url}}" alt="">
                         <div class="feature-one__title-box">
-                            <h3 class="feature-one__title"><a href="about.html">Manage IT services</a></h3>
+                            <h3 class="feature-one__title"><a href="#">{{$service->title}}</a></h3>
                         </div>
                         <div class="feature-one__hover-content">
                             <div class="feature-one__icon">
-                                <span class="icon-system"></span>
+                                <span class="icon-innovation"></span>
                             </div>
-                            <h3 class="feature-one__hover-title"><a href="about.html">Manage IT services</a>
+                            <h3 class="feature-one__hover-title"><a href="about.html">{{$service->title}}</a>
                             </h3>
-                            <p class="feature-one__hover-text">There are many lipsum of in pass sages of
-                                available some.</p>
+                            <p class="feature-one__hover-text">{!! Str::words($service->description, 10,'...') !!}.</p>
                             <div class="feature-one__learn-more">
-                                <a href="about.html">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
+                                <a href="about.html">Lire Plus<i class="fa fa-long-arrow-alt-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                <!--Feature One Single-->
-                <div class="feature-one__single">
-                    <div class="feature-one__img">
-                        <img src="client/images/resources/feature-1-2.jpg" alt="">
-                        <div class="feature-one__title-box">
-                            <h3 class="feature-one__title"><a href="about.html">Cyber security</a></h3>
-                        </div>
-                        <div class="feature-one__hover-content">
-                            <div class="feature-one__icon">
-                                <span class="icon-cyber"></span>
-                            </div>
-                            <h3 class="feature-one__hover-title"><a href="about.html">Cyber securitys</a></h3>
-                            <p class="feature-one__hover-text">There are many lipsum of in pass sages of
-                                available some.</p>
-                            <div class="feature-one__learn-more">
-                                <a href="about.html">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                <!--Feature One Single-->
-                <div class="feature-one__single">
-                    <div class="feature-one__img">
-                        <img src="client/images/resources/feature-1-3.jpg" alt="">
-                        <div class="feature-one__title-box">
-                            <h3 class="feature-one__title"><a href="about.html">Digital experience</a></h3>
-                        </div>
-                        <div class="feature-one__hover-content">
-                            <div class="feature-one__icon">
-                                <span class="icon-application"></span>
-                            </div>
-                            <h3 class="feature-one__hover-title"><a href="about.html">Digital experience</a>
-                            </h3>
-                            <p class="feature-one__hover-text">There are many lipsum of in pass sages of
-                                available some.</p>
-                            <div class="feature-one__learn-more">
-                                <a href="about.html">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -317,89 +274,7 @@
 <!--Get To Know End-->
 
 <!--Services One Start-->
-<section class="services-one" style="background-image: url(assets/images/shapes/service-bg-1-1.png);">
-    <div class="service-one__shape-1"></div><!-- /.service-one__shape-1 -->
-    <div class="service-one__shape-2"></div><!-- /.service-one__shape-2 -->
-    <div class="container">
-        <div class="services-one__top">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="services-one__top-left">
-                        <div class="section-title text-left">
-                            <div class="section-title__tagline-box">
-                                <span class="section-title__tagline">What we’re offering</span>
-                                <div class="section-title-shape">
-                                    <img src="client/images/shapes/section-title-shape.png" alt="">
-                                </div>
-                            </div>
-                            <h2 class="section-title__title">Services we’re providing to our customers</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="services-one__top-right">
-                        <p class="services-one__top-text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. quis nostrud
-                            exercitation ullamco laboris.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="services-one__bottom">
-            <ul class="list-unstyled services-one__list">
-                <li class="services-one__single">
-                    <div class="services-one__content">
-                        <div class="services-one__icon">
-                            <span class="icon-coding"></span>
-                        </div>
-                        <h3 class="services-one__title"><a href="product-development.html">Product <br>
-                                development</a></h3>
-                        <p class="services-one__text">Lorem ipsum dolor <br> sit amet do.</p>
-                    </div>
-                </li>
-                <li class="services-one__single">
-                    <div class="services-one__content">
-                        <div class="services-one__icon">
-                            <span class="icon-design-thinking"></span>
-                        </div>
-                        <h3 class="services-one__title"><a href="ui-ux-designing.html">UI/UX <br> designing</a>
-                        </h3>
-                        <p class="services-one__text">Lorem ipsum dolor <br> sit amet do.</p>
-                    </div>
-                </li>
-                <li class="services-one__single">
-                    <div class="services-one__content">
-                        <div class="services-one__icon">
-                            <span class="icon-technology"></span>
-                        </div>
-                        <h3 class="services-one__title"><a href="digital-marketing.html">Digital <br>
-                                marketing</a></h3>
-                        <p class="services-one__text">Lorem ipsum dolor <br> sit amet do.</p>
-                    </div>
-                </li>
-                <li class="services-one__single">
-                    <div class="services-one__content">
-                        <div class="services-one__icon">
-                            <span class="icon-content"></span>
-                        </div>
-                        <h3 class="services-one__title"><a href="content-management.html">Content <br>
-                                management</a></h3>
-                        <p class="services-one__text">Lorem ipsum dolor <br> sit amet do.</p>
-                    </div>
-                </li>
-                <li class="services-one__single">
-                    <div class="services-one__content">
-                        <div class="services-one__icon">
-                            <span class="icon-optimization"></span>
-                        </div>
-                        <h3 class="services-one__title"><a href="data-analysis.html">Data <br> analysis</a></h3>
-                        <p class="services-one__text">Lorem ipsum dolor <br> sit amet do.</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+
 <!--Services One End-->
 
 <!--Business From Start-->
@@ -729,90 +604,40 @@
             <h2 class="section-title__title">Articles de blog</h2>
         </div>
         <div class="row">
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                <!--Blog One single-->
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="client/images/blog/blog-1-1.jpg" alt="">
-                        <div class="blog-one__tag">
-                            <p>Tech</p>
+            @foreach ($articles as $article)
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+                    <!--Blog One single-->
+                    <div class="blog-one__single">
+                        <div class="blog-one__img">
+                            <img src="{{$article->image_url}}" alt="">
+                            <div class="blog-one__tag">
+                                <p>{{$article->category->title}}</p>
+                            </div>
+                            <a href="{{route("blog.detail",['id'=>$article->id, 'slug'=>Str::slug($article->title,'-')])}}">
+                                <span class="blog-one__plus"></span>
+                            </a>
                         </div>
-                        <a href="{{route("blog.detail")}}">
-                            <span class="blog-one__plus"></span>
-                        </a>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="list-unstyled blog-one__meta">
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-clock"></i> 8 Jan, 2022</a>
-                            </li>
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-user-circle"></i> by Layerdrops</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title">
-                            <a href="{{route("blog.detail")}}">Easy to use software new innovation</a>
-                        </h3>
-                        <div class="blog-one__bottom">
-                            <a href="{{route("blog.detail")}}">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                <!--Blog One single-->
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="client/images/blog/blog-1-2.jpg" alt="">
-                        <div class="blog-one__tag">
-                            <p>solution</p>
-                        </div>
-                        <a href="{{route("blog.detail")}}">
-                            <span class="blog-one__plus"></span>
-                        </a>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="list-unstyled blog-one__meta">
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-clock"></i> 8 Jan, 2022</a>
-                            </li>
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-user-circle"></i> by Layerdrops</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title">
-                            <a href="{{route("blog.detail")}}">What is holding back the IT solution.</a>
-                        </h3>
-                        <div class="blog-one__bottom">
-                            <a href="{{route("blog.detail")}}">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
+                        <div class="blog-one__content">
+                            <ul class="list-unstyled blog-one__meta">
+                                <li><a href="#"><i class="far fa-clock"></i> {{$article->created_at->isoFormat('D MMM, YYYY')}}</a>
+                                </li>
+                                <li><a href="#"><i class="far fa-user-circle"></i> by Admin</a>
+                                </li>
+                            </ul>
+                            <h3 class="blog-one__title">
+                                <a href="{{route("blog.detail",['id'=>$article->id, 'slug'=>Str::slug($article->title,'-')])}}">{{Str::words($article->title,4,'...')}}</a>
+                            </h3>
+                            <div class="blog-one__bottom">
+                                <a href="{{route("blog.detail",['id'=>$article->id, 'slug'=>Str::slug($article->title,'-')])}}">Lire Plus<i class="fa fa-long-arrow-alt-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                <!--Blog One single-->
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="client/images/blog/blog-1-3.jpg" alt="">
-                        <div class="blog-one__tag">
-                            <p>Tech</p>
-                        </div>
-                        <a href="{{route("blog.detail")}}">
-                            <span class="blog-one__plus"></span>
-                        </a>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="list-unstyled blog-one__meta">
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-clock"></i> 8 Jan, 2022</a>
-                            </li>
-                            <li><a href="{{route("blog.detail")}}"><i class="far fa-user-circle"></i> by Layerdrops</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title">
-                            <a href="{{route("blog.detail")}}">Podcasting operational change management</a>
-                        </h3>
-                        <div class="blog-one__bottom">
-                            <a href="{{route("blog.detail")}}">Learn more<i class="fa fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+
+           
+
         </div>
     </div>
 </section>

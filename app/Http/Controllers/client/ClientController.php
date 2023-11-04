@@ -6,19 +6,28 @@ use App\Models\Contact;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\ArticleCategorie;
 use App\Models\Formation;
 use App\Models\Service;
 use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      * @return View
      */
     public function index(): View
     {
-        return view("client.home");
+        $articles = Article::inRandomOrder()->latest()->active()->take(6)->get();
+        $services = Service::inRandomOrder()->latest()->active()->limit(3)->get();
+        return view("client.home",[
+            'articles'=>$articles,
+            'services'=>$services,
+        ]);
     }
 
     public function aPropos()
@@ -34,12 +43,22 @@ class ClientController extends Controller
 
     public function blog()
     {
-        return view("client.blog");
+        $articles = Article::latest()->active()->paginate(6);
+        return view("client.blog",[
+            'articles'=>$articles,
+        ]);
     }
 
-    public function blogDetail()
+    public function blogDetail($id, $slug)
     {
-        return view("client.details_blog");
+        $article = Article::where('id', $id)->first();
+        $derniersPostes = Article::latest()->active()->take(3)->get();
+        $categories = ArticleCategorie::latest()->get();
+        return view("client.details_blog",[
+            'article'=>$article,
+            'derniersPostes'=>$derniersPostes,
+            'categories'=>$categories,
+        ]);
     }
 
     public function contact()
