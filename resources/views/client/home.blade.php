@@ -407,12 +407,12 @@
         <div class="container">
             <div class="section-title text-center">
                 <div class="section-title__tagline-box">
-                    <span class="section-title__tagline">Recently completed work</span>
+                    <span class="section-title__tagline">Travaux récemment terminés</span>
                     <div class="section-title-shape">
                         <img src="client/images/shapes/section-title-shape.png" alt="">
                     </div>
                 </div>
-                <h2 class="section-title__title">Our latest projects</h2>
+                <h2 class="section-title__title">Nos derniers Projets </h2>
             </div>
             <div class="row">
                 <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">

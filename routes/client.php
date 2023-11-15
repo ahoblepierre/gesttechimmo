@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\client\ClientController;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\FuncCall;
 
 Route::get("/",[ClientController::class,'index'])->name("home");
 
