@@ -43,17 +43,24 @@
                                     <div class="text-center mb-3">
                                         <a href="index.html"><img src="assets/images/logo-full.png" alt=""></a>
                                     </div>
-                                    <h4 class="text-center mb-4">Sign in your account</h4>
-                                    <form action="https://lezato.w3itexpert.com/laravel/demo/index">
+                                    <h4 class="text-center mb-4">Sign to GestTechImmo</h4>
+                                    <form action="{{route("to.login")}}" method="POST">
+                                        @csrf
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" value="hello@example.com">
+                                            <input type="email" class="form-control @error("email") is-invalid @enderror"" value="{{ old("email")}}" name="email" required  placeholder="hello@example.com">
+                                            @error("email")
+                                            <span class="text-danger mt-2">{{$message}}</span>
+                                            @enderror
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" value="Password">
+                                            <input type="password" class="form-control @error("password") is-invalid @enderror" value="{{old("password")}}" name="password" required>
+                                            @error("password")
+                                            <span class="text-danger mt-2">{{$message}}</span>
+                                            @enderror
                                         </div>
-                                        <div class="row d-flex justify-content-between mt-4 mb-2">
+                                        {{-- <div class="row d-flex justify-content-between mt-4 mb-2">
                                             <div class="mb-3">
                                                 <div class="form-check custom-checkbox ms-1">
                                                     <input type="checkbox" class="form-check-input"
@@ -64,16 +71,16 @@
                                             </div>
                                             <div class="mb-3">
                                                 <a href="page-forgot-password.html">Forgot Password?</a>
-                                            </div>
-                                        </div>
+                                            </div> 
+                                        </div> --}}
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Connectez-vous</button>
                                         </div>
                                     </form>
-                                    <div class="new-account mt-3">
+                                  {{--   <div class="new-account mt-3">
                                         <p>Don't have an account? <a class="text-primary" href="page-register.html">Sign
                                                 up</a></p>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

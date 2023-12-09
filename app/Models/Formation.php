@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Formation extends Model
 {
     use HasFactory;
+
+    protected $guarded =[
+        "created_at","updated_at","delete_at"
+    ];
 }

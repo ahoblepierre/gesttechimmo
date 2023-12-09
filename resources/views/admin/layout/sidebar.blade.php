@@ -7,7 +7,14 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
-            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+            <li>
+                <a class="ai-icon" href="{{route("index.dasboard")}}"> 
+                    <i class="flaticon-025-dashboard"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+
+           {{--  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-025-dashboard"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
@@ -21,36 +28,59 @@
                     <li><a href="review.html">Review</a></li>
                 </ul>
 
-            </li>
+            </li> --}}
+
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-050-info"></i>
-                    <span class="nav-text">Apps</span>
+                    <i class="flaticon-381-notepad"></i>
+                    <span class="nav-text">Services</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="app-profile.html">Profile</a></li>
-                    <li><a href="post-details.html">Post Details</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Email</a>
-                        <ul aria-expanded="false">
-                            <li><a href="email-compose.html">Compose</a></li>
-                            <li><a href="email-inbox.html">Inbox</a></li>
-                            <li><a href="email-read.html">Read</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="app-calender.html">Calendar</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Shop</a>
-                        <ul aria-expanded="false">
-                            <li><a href="ecom-product-grid.html">Product Grid</a></li>
-                            <li><a href="ecom-product-list.html">Product List</a></li>
-                            <li><a href="ecom-product-detail.html">Product Details</a></li>
-                            <li><a href="ecom-product-order.html">Order</a></li>
-                            <li><a href="ecom-checkout.html">Checkout</a></li>
-                            <li><a href="ecom-invoice.html">Invoice</a></li>
-                            <li><a href="ecom-customers.html">Customers</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{route("create.service")}}">Ajouter un service</a></li>
+                    <li><a href="{{route("index.service")}}">Liste des services</a></li>
                 </ul>
             </li>
+
+            {{-- Formation  --}}
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-036-floppy-disk"></i>
+                    <span class="nav-text">Formation</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{route("create.formation")}}">Ajouter une formation</a></li>
+                    <li><a href="{{route("index.formation")}}">Liste des formations</a></li>
+                    <li><a href="post-details.html">Liste des inscriptions</a></li>
+                </ul>
+            </li>
+
+            {{-- Articles blog  --}}
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-013-checkmark"></i>
+                <span class="nav-text">Blog / Articles</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route("create.article")}}">Ajouter un article</a></li>
+                <li><a href="{{route("index.article")}}">Liste des articles</a></li>
+            </ul>
+
+            {{-- Category  --}}
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-381-file"></i>
+                <span class="nav-text">Categorie</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route("create.category")}}">Ajouter une categorie</a></li>
+                <li><a href="{{route("index.category")}}">Liste des categories</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="ai-icon" href="{{route("to.logout")}}"> 
+                <i class="flaticon-070-power"></i>
+                <span class="nav-text">Deconnexion</span>
+            </a>
+        </li>
+
+        {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-041-graph"></i>
                     <span class="nav-text">Charts</span>
                 </a>
@@ -147,17 +177,13 @@
                     <li><a href="empty-page.html">Empty Page</a></li>
                 </ul>
             </li>
-        </ul>
-        <div class="plus-box">
-            <img src="assets/images/plus.png" alt="">
-            <h5 class="fs-18 font-w700">Add Menus</h5>
-            <p class="fs-14 font-w400">Manage your food <br>and beverages menus<i
-                    class="fas fa-arrow-right ms-3"></i></p>
-        </div>
-        <div class="copyright">
+        </ul> --}}
+
+        
+        {{-- <div class="copyright">
             <p><strong>Lezato Restaurant Admin</strong> © 2023 All Rights Reserved</p>
             <p class="fs-12">Made with <span class="heart"></span> by DexignZone</p>
-        </div>
+        </div> --}}
     </div>
 </div>
 <!--**********************************
