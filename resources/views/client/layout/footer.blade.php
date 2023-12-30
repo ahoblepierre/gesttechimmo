@@ -6,21 +6,7 @@
     <div class="site-footer-bg-2 wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms"
         style="background-image: url(assets/images/shapes/site-footer-shape-2.png);">
     </div>
-    <div class="site-footer__top">
-        <div class="container">
-            <div class="site-footer__top-inner">
-                <div class="site-footer__top-left">
-                    <div class="site-footer__top-icon">
-                        <span class="icon-artificial-intelligence"></span>
-                    </div>
-                    <h3 class="site-footer__top-title">Helping you overcome your technology challenges</h3>
-                </div>
-                <div class="site-footer__top-right">
-                    <a href="about.html" class="thm-btn site-footer__btn">Discover more</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="site-footer__middle">
         <div class="container">
             <div class="row">

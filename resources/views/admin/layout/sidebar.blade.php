@@ -71,6 +71,15 @@
                 <li><a href="{{route("create.category")}}">Ajouter une categorie</a></li>
                 <li><a href="{{route("index.category")}}">Liste des categories</a></li>
             </ul>
+            {{-- Temoignanges  --}}
+            <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                <i class="flaticon-381-file"></i>
+                <span class="nav-text">Temoignages</span>
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{route("create.temoignage")}}">Ajouter un temoignage</a></li>
+                <li><a href="{{route("index.temoignage")}}">Liste des temoignages</a></li>
+            </ul>
         </li>
 
         <li>
@@ -180,10 +189,10 @@
         </ul> --}}
 
         
-        {{-- <div class="copyright">
-            <p><strong>Lezato Restaurant Admin</strong> © 2023 All Rights Reserved</p>
-            <p class="fs-12">Made with <span class="heart"></span> by DexignZone</p>
-        </div> --}}
+        <div class="copyright">
+            <p><strong>GestImmo</strong> © {{now()->year}} Tous droits réservés</p>
+            <p class="fs-12">By Pierre AHOBLE</p>
+        </div>
     </div>
 </div>
 <!--**********************************

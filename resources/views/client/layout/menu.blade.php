@@ -44,7 +44,7 @@
 
             <div class="main-menu__left main-menu__left--two">
                 <div class="main-menu__logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img class="logo-dark" src="client/images/resources/logo-1.png" alt="">
                         <img class="logo-light" src="client/images/resources/logo-2.png" alt="">
                     </a>

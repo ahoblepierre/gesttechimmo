@@ -11,7 +11,7 @@
    
     <!--Page Header Start-->
     <section class="page-header">
-        <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+        <div class="page-header-bg" style="background-image: url({{ asset('custom/banniere.jpg')}})">
         </div>
         <div class="container">
             <div class="page-header__inner">
@@ -52,23 +52,21 @@
                     <div class="welcome-two__right">
                         <div class="section-title text-left">
                             <div class="section-title__tagline-box">
-                                <span class="section-title__tagline">Welcome to company</span>
+                                <span class="section-title__tagline">Nos Services </span>
                                 <div class="section-title-shape">
                                     <img src="assets/images/shapes/section-title-shape.png" alt="">
                                 </div>
                             </div>
-                            <h2 class="section-title__title">Notech is creating best unmatched technology solutions
-                            </h2>
+                           
                         </div>
-                        <p class="welcome-two__text">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.</p>
+                        <p class="welcome-two__text">Chez Gestechimmo, nous offrons une gamme complète de services de gestion technique immobilière pour répondre aux besoins variés de nos clients. Nos services comprennent</p>
                         <ul class="list-unstyled get-to-know__points">
                             <li>
                                 <div class="icon">
                                     <span class="icon-check"></span>
                                 </div>
                                 <div class="text">
-                                    <p>Refresing to get such a personal touch. </p>
+                                    <p>Gestion Technique </p>
                                 </div>
                             </li>
                             <li>
@@ -76,7 +74,7 @@
                                     <span class="icon-check"></span>
                                 </div>
                                 <div class="text">
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate.</p>
+                                    <p>Les états de lieux</p>
                                 </div>
                             </li>
                             <li>
@@ -84,47 +82,17 @@
                                     <span class="icon-check"></span>
                                 </div>
                                 <div class="text">
-                                    <p>Velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                    <p> Aménagement Intérieur.</p>
                                 </div>
                             </li>
                         </ul>
-                        <a href="about.html" class="welcome-two__btn thm-btn">Discover more</a>
+                        {{-- <a href="about.html" class="welcome-two__btn thm-btn">Discover more</a> --}}
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--Welcome Two End-->
 
-    <!--Feature Two Start-->
-    {{-- <section class="feature-two">
-        <div class="container">
-            <div class="row">
-                @foreach ($services as $service)
-                <!--Feature Two Single Start-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="feature-two__single">
-                        <div class="feature-two__single-inner">
-                            <div class="feature-two__img">
-                                <img src="{{$service->image_url}}" alt="">
-                                <div class="feature-two__letter">
-                                    <h5>{{substr($service->title,0,1)}}</h5>
-                                </div>
-                            </div>
-                            <div class="feature-two__content">
-                                <h4 class="feature-two__title"><a href="#">{{$service->title}}</a></h4>
-                                <p class="feature-two__text">{!! Str::words($service->description,10, ' ...') !!}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Feature Two Single End-->
-                @endforeach
-            </div>
-          
-        </div>
-    </section> --}}
-    <!--Feature Two End-->
     
             <!--Delivering IT Start-->
             <section class="delivering-it delivering-it-two">
@@ -235,76 +203,9 @@
     </section>
     <!--Tech Services End-->
 
-    <!--Brand Two Start-->
-    <section class="brand-one brand-two">
-        <div class="container">
-            <div class="brand-two__inner">
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
-                    "0": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "375": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 2
-                    },
-                    "575": {
-                        "spaceBetween": 30,
-                        "slidesPerView": 3
-                    },
-                    "767": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 4
-                    },
-                    "991": {
-                        "spaceBetween": 50,
-                        "slidesPerView": 5
-                    },
-                    "1199": {
-                        "spaceBetween": 100,
-                        "slidesPerView": 5
-                    }
-                }}'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-1.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-2.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-3.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-4.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                        <div class="swiper-slide">
-                            <img src="assets/images/brand/brand-1-5.png" alt="">
-                        </div><!-- /.swiper-slide -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Brand Two End-->
 
     <!--Counter One Start-->
-    <section class="counter-one counter-three">
+    <section class="counter-one">
         <div class="counter-one__bg" style="background-image: url(assets/images/backgrounds/funfact-bg-1-1.png);">
         </div><!-- /.counter-one__bg -->
         <div class="container">
@@ -315,35 +216,34 @@
                             <div class="counter-one__icon">
                                 <span class="icon-work"></span>
                             </div>
-                            <h3 class="odometer" data-count="30">00</h3>
+                            <h3 class="odometer" data-count="10">00</h3>
                             <span class="counter-one__plus">+</span>
-                            <p class="counter-one__title">Years of experience</p>
-                            <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p>
+                            <p class="counter-one__title">Des années d'expérience</p>
                         </li>
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
                             <div class="counter-one__icon">
                                 <span class="icon-technical-support"></span>
                             </div>
                             <h3 class="odometer" data-count="2800">00</h3>
-                            <p class="counter-one__title">IT problems solved</p>
-                            <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p>
+                            <p class="counter-one__title">Problèmes  résolus</p>
+                            {{-- <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p> --}}
                         </li>
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
                             <div class="counter-one__icon">
                                 <span class="icon-like"></span>
                             </div>
-                            <h3 class="odometer" data-count="6960">00</h3>
-                            <p class="counter-one__title">Satisfied clients</p>
-                            <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p>
+                            <h3 class="odometer" data-count="200">00</h3>
+                            <p class="counter-one__title">Clients satisfaits</p>
+                            {{-- <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p> --}}
                         </li>
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
                             <div class="counter-one__icon">
                                 <span class="icon-user"></span>
                             </div>
-                            <h3 class="odometer" data-count="29">00</h3>
+                            <h3 class="odometer" data-count="7">00</h3>
                             <span class="counter-one__plus">+</span>
-                            <p class="counter-one__title">Pro team members</p>
-                            <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p>
+                            <p class="counter-one__title">Membres de l'équipe professionnelle</p>
+                            {{-- <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p> --}}
                         </li>
                     </ul>
                 </div>
@@ -351,6 +251,8 @@
         </div>
     </section>
     <!--Counter One End-->
+
+ 
 
 
     

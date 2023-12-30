@@ -6,7 +6,7 @@
 
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+            <div class="page-header-bg" style="background-image: url({{ asset('custom/banniere.jpg')}})">
             </div>
             <div class="container">
                 <div class="page-header__inner">
@@ -15,7 +15,7 @@
                         <li><span>/</span></li>
                         <li class="active">Contact</li>
                     </ul>
-                    <h2>Contact us</h2>
+                    <h2>Nous Contacter</h2>
                 </div>
             </div>
         </section>
@@ -30,21 +30,26 @@
                 <div class="row">
                     <div class="col-xl-7 col-lg-6">
                         <div class="contact-details__img">
-                            <img src="assets/images/resources/contact-details-img.jpg" alt="">
+                            <img src="{{asset('custom/contact.jpg')}}" alt="">
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6">
                         <div class="contact-details__right">
                             <div class="section-title text-left">
                                 <div class="section-title__tagline-box">
-                                    <span class="section-title__tagline">Contact with us</span>
+                                    <span class="section-title__tagline">Nous Contacter</span>
                                     <div class="section-title-shape">
                                         <img src="assets/images/shapes/section-title-shape.png" alt="">
                                     </div>
                                 </div>
-                                <h2 class="section-title__title">Get in touch with us</h2>
                             </div>
-                            <p class="contact-details__text">Lorem ipsum dolor sit amet, consectetur notted adipis not icing elit sed do eiusmod tempor incididunt.</p>
+                            <p class="contact-details__text">
+                                Que vous ayez des questions sur nos services, besoin de conseils personnalisés ou simplement l'envie de discuter de vos projets immobiliers, notre équipe est là pour vous accompagner. Nous sommes impatients d'entendre parler de vous et de trouver des solutions adaptées à vos besoins.
+                            </p>
+
+                            <p class="contact-details__text">
+                                N'hésitez pas à nous contacter par le biais du formulaire ci-dessous ou en utilisant les coordonnées fournies. Chez Gestechimmo, nous croyons en la puissance des conversations pour construire des relations solides. Nous sommes prêts à vous écouter et à travailler ensemble pour atteindre vos objectifs immobiliers.
+                            </p>
                             <ul class="list-unstyled contact-details__info">
                                 <li>
                                     <div class="icon">
@@ -98,7 +103,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="contact-page__form">
-                            <form action="{{route('client.contact')}}" method="POST" class="comment-one__form" novalidate="novalidate">
+                            <form action="{{route('client.contact')}}" method="POST" class="comment-one__form contact-form-validated" novalidate="novalidate">
                                 @csrf
                                 <div class="row">
                                     <div class="col-xl-6">
@@ -139,9 +144,6 @@
             </div>
         </section>
         <!--Contact Page End-->
-
-
-
 
 
     

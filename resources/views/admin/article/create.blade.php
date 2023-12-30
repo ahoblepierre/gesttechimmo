@@ -2,12 +2,16 @@
 
 @push('style')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.17.9/tagify.min.css"
+        integrity="sha512-yWu5jVw5P8+IsI7tK+Uuc7pFfQvWiBfFfVlT5r0KP6UogGtZEc4BxDIhNwUysMKbLjqCezf6D8l6lWNQI6MR7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
 @section('contenu')
     <div class="row page-titles">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Cette section est reserve a l'ajout d'un article</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Cette section est reserve a l'ajout d'un article</a>
+            </li>
         </ol>
     </div>
     <div class="row">
@@ -41,11 +45,23 @@
                                     <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-lg-12">
-                                   <select class="default-select select2 form-control wide mb-3" name="category" required>
-									@foreach ($categories as $categorie)
-                                        <option value="{{$categorie->id}}">{{$categorie->title}} </option>
-                                    @endforeach
-								</select>
+                                    <select class="default-select select2 form-control wide mb-3" name="category" required>
+                                        @foreach ($categories as $categorie)
+                                            <option value="{{ $categorie->id }}">{{ $categorie->title }} </option>
+                                        @endforeach
+                                    </select>
+
+
+                                    <div class="mb-3 row">
+                                        <label class="col-lg-4 col-form-label">Tags
+                                        </label>
+                                        <div class="col-lg-12">
+                                            <input type="text" class="form-control input-default" placeholder="Tags"
+                                                name="tags" required value="{{ old('tags') }}" id="tags">
+                                        </div>
+                                        <span class="fw-italic"> Veuillez séparer par une virgule pour ajouter plusieurs tags</span>
+
+                                    </div>
 
                                 </div>
                                 @error('titre')
@@ -94,10 +110,22 @@
 @push('script')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.17.9/tagify.min.js"
+        integrity="sha512-E6nwMgRlXtH01Lbn4sgPAn+WoV2UoEBlpgg9Ghs/YYOmxNpnOAS49+14JMxIKxKSH3DqsAUi13vo/y1wo9S/1g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
         // In your Javascript (external .js resource or <script> tag)
         $(document).ready(function() {
             $('.select2').select2();
+
+
+            var tagInput = document.getElementById('tags')
+            // initialize Tagify on the above input node reference
+            new Tagify(tagInput)
+
+
+
         });
     </script>
 @endpush

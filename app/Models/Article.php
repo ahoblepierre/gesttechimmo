@@ -15,11 +15,23 @@ class Article extends Model
 
     public function category()
     {
-        return $this->belongsTo(ArticleCategorie::class,'article_categorie_id');
+        return $this->belongsTo(ArticleCategorie::class, 'article_categorie_id');
     }
 
     public function scopeActive(Builder $query): void
     {
         $query->where('statut', 1);
+    }
+
+
+    public function commentaire()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
+
+
+    public function tags(){
+        if (empty($this->tags)) return [];
+        return explode('|', $this->tags);
     }
 }

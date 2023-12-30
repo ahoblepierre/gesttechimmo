@@ -51,7 +51,9 @@ class ArtcileController extends Controller
      */
     public function store(Request $request)
     {
-        // return($request);
+    
+
+       
         $this->validate($request, [
             "titre" => "required",
             "content" => "required",
@@ -66,7 +68,8 @@ class ArtcileController extends Controller
                 "title" => $request->titre,
                 "description" => $request->content,
                 "image_url" => $imagePath,
-                "article_categorie_id" => $request->category
+                "article_categorie_id" => $request->category,
+                "tags"=> $this->transformJsonArrayToString($request->tags),
             )
         );
 
@@ -116,6 +119,7 @@ class ArtcileController extends Controller
         $article->description = $request->content;
         $article->image_url = $imagePath;
         $article->article_categorie_id = $request->category;
+        $article->tags = $this->transformJsonArrayToString($request->tags);
         $article->save();
 
         Session::flash("success", "Article modifié avec succes");

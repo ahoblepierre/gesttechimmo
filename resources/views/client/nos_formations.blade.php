@@ -4,7 +4,7 @@
 
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+            <div class="page-header-bg" style="background-image: url({{ asset('custom/banniere.jpg')}})">
             </div>
             <div class="container">
                 <div class="page-header__inner">
@@ -62,12 +62,12 @@
             <div class="container">
                 <div class="section-title text-center">
                     <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our client feedbacks</span>
+                        <span class="section-title__tagline">Nos retours clients</span>
                         <div class="section-title-shape">
                             <img src="assets/images/shapes/section-title-shape.png" alt="">
                         </div>
                     </div>
-                    <h2 class="section-title__title">What they’re talking?</h2>
+                    <h2 class="section-title__title">De quoi parlent-ils ?</h2>
                 </div>
                 <div class="owl-carousel owl-theme thm-owl__carousel testimonial-two__carousel" data-owl-options='{
                     "loop": true,
@@ -93,6 +93,28 @@
                         }
                     }
                 }'>
+
+                @foreach ($temoignages as $temoignage)
+                    <div class="testimonial-two__single">
+                        <div class="testimonial-two__single-inner">
+                            <div class="testimonial-two__icon">
+                                <img src="assets/images/icon/testimonial-two-icon.png" alt="">
+                            </div>{{Str::words($temoignage->description,20,'...')}}</p>
+                            <div class="testimonial-two__client-info">
+                                <div class="testimonial-two__client-img">
+                                    <img src="{{$temoignage->iamge_url}}" alt="">
+                                </div>
+                                <h5 class="testimonial-two__client-name">{{$temoignage->name}}</h5>
+                                <p class="testimonial-two__client-title">{{$temoignage->profession}}</p>
+                            </div>
+                            <div class="testimonial-two-shape">
+                                <img src="assets/images/shapes/testimonial-two-shape.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+
                     <div class="testimonial-two__single">
                         <div class="testimonial-two__single-inner">
                             <div class="testimonial-two__icon">
@@ -113,6 +135,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="testimonial-two__single">
                         <div class="testimonial-two__single-inner">
                             <div class="testimonial-two__icon">
@@ -133,6 +156,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="testimonial-two__single">
                         <div class="testimonial-two__single-inner">
                             <div class="testimonial-two__icon">
@@ -153,78 +177,14 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </section>
         <!--Testimonial Two End-->
 
-        <!--Brand Two Start-->
-        <section class="brand-one brand-four">
-            <div class="container">
-                <div class="brand-four__inner">
-                    <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 5, "autoplay": { "delay": 5000 }, "breakpoints": {
-                        "0": {
-                            "spaceBetween": 30,
-                            "slidesPerView": 2
-                        },
-                        "375": {
-                            "spaceBetween": 30,
-                            "slidesPerView": 2
-                        },
-                        "575": {
-                            "spaceBetween": 30,
-                            "slidesPerView": 3
-                        },
-                        "767": {
-                            "spaceBetween": 50,
-                            "slidesPerView": 4
-                        },
-                        "991": {
-                            "spaceBetween": 50,
-                            "slidesPerView": 5
-                        },
-                        "1199": {
-                            "spaceBetween": 100,
-                            "slidesPerView": 5
-                        }
-                    }}'>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-1.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-2.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-3.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-4.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-5.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-1.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-2.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-3.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-4.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                            <div class="swiper-slide">
-                                <img src="assets/images/brand/brand-1-5.png" alt="">
-                            </div><!-- /.swiper-slide -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Brand Two End-->
+   
 
     
 @endsection

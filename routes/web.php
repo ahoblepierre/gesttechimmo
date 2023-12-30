@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FormationController;
+use App\Http\Controllers\admin\TemoignageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,6 +156,23 @@ Route::prefix('adminitration')->group(function(){
         Route::get("destroy-category/{id}",'destroy')->name("destroy.category");
     
     });    
+
+
+
+    Route::controller(TemoignageController::class)->group(function(){
+
+        Route::get('liste-temoignages', 'indexAction')->name('index.temoignage');
+
+        Route::get('ajouter-un-temoignage', 'createAction')->name('create.temoignage');
+
+        Route::post('store-temoignage','storeAction')->name('store.temoignage');
+
+        Route::get('edit-temoignage/{id}','editAction')->name('edit.temoignage');
+
+        Route::post('update-temoignage/{id}','updateAction')->name('update.temoignage');
+
+        Route::get('change-temoignage/{id}','changeStatutAction')->name('change.temoignage');
+    });
 
 });
 

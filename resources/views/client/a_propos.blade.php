@@ -11,7 +11,7 @@
 
 <!--Page Header Start-->
 <section class="page-header">
-    <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+    <div class="page-header-bg" style="background-image: url({{ asset('custom/banniere.jpg')}})">
     </div>
     <div class="container">
         <div class="page-header__inner">
@@ -35,15 +35,21 @@
                     <div class="we-help__left">
                         <div class="section-title text-left">
                             <div class="section-title__tagline-box">
-                                <span class="section-title__tagline">Qui sommes nous ?</span>
+                                <span class="section-title__tagline">Qui sommes-nous ?</span>
                                 <div class="section-title-shape">
                                     <img src="assets/images/shapes/section-title-shape.png" alt="">
                                 </div>
                             </div>
-                            <h2 class="section-title__title">We help your every business need</h2>
+                            {{-- <h2 class="section-title__title">We help your every business need</h2> --}}
                         </div>
-                        <p class="we-help__text-1">Lorem ipsum dolor sit amet, consectetur notted adipis not icing elit sed do eiusmod tempor. Suspendisse eget metus vitae nisi feugiat imperdiet et quis erat. Cras eget lorem sed elit finibus viverra.</p>
-                        <p class="we-help__text-2">Quisque sagittis diam nec nisi suscipit, sit amet gravida nisl venenatis. Pellentesque sodales nisl non mi maximus malesuada.</p>
+                        <p class="we-help__text-1">Gestechimmo est une entreprise dédiée à la gestion technique immobilière, façonnée par une passion pour l'innovation et un engagement envers l'excellence. Notre parcours a débuté en 2021, et depuis lors, nous avons évolué pour devenir des experts reconnus dans notre domaine.</p>
+                        <span class="section-title__tagline">Notre Mission</span>
+
+                        <p class="we-help__text-2">Nous nous engageons à offrir des solutions de gestion technique immobilière qui dépassent les attentes de nos clients. Notre mission est de simplifier les processus, d'optimiser les performances et de créer des environnements immobiliers durables.</p>
+             
+                        <p class="we-help__text-2">Au cœur de Gestechimmo se trouvent l'intégrité, l'innovation et la satisfaction du client. Nous croyons en la transparence, en la recherche constante de solutions novatrices et en la création de partenariats durables avec nos clients.</p>
+
+
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">

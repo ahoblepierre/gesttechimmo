@@ -21,6 +21,10 @@ Route::get("blog",[ClientController::class,"blog"])->name("blog");
 
 Route::get("blog/detail/{id}/{slug}",[ClientController::class,"blogDetail"])->name("blog.detail");
 
+Route::post('add-commentaire',[ClientController::class,'addCommentaire'])->name('blog.commentaire');
+
+Route::get('rechercher-un-article',[ClientController::class,'rechercheArticleBlog'])->name('blog.search');
+
 
 ################################################################################
 
