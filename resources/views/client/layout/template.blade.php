@@ -147,9 +147,10 @@
         <div class="search-popup__overlay search-toggler"></div>
         <!-- /.search-popup__overlay -->
         <div class="search-popup__content">
-            <form action="#">
+            <form action="{{route('blog.search')}}">
+                @csrf
                 <label for="search" class="sr-only">cherche ici</label><!-- /.sr-only -->
-                <input type="text" id="search" placeholder="Cherche ici ..." />
+                <input type="text" id="search" placeholder="Cherche ici ..."  name="search"/>
                 <button type="submit" aria-label="search submit" class="thm-btn">
                     <i class="icon-magnifying-glass"></i>
                 </button>

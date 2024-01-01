@@ -16,14 +16,15 @@
                             <a href="index.html"><img src="client/images/resources/footer-logo.png" alt=""></a>
                         </div>
                         <div class="footer-widget__about-text-box">
-                            <p class="footer-widget__about-text">Subsrcibe for our upcoming latest articles and
-                                news resources</p>
+                            <p class="footer-widget__about-text">
+                                Abonnez-vous pour nos prochains derniers articles et sources d'actualités
+                            </p>
                         </div>
                         <form class="footer-widget__newsletter-form">
                             <div class="footer-widget__newsletter-input-box">
-                                <input type="email" placeholder="Email address" name="email">
+                                <input type="email" placeholder="Adresse Email" name="email">
                                 <button type="submit" class="footer-widget__newsletter-btn"><img
-                                        src="client/images/icon/footer-widget-newsletter-send-icon.png"
+                                        src="{{asset('client/images/icon/footer-widget-newsletter-send-icon.png')}}"
                                         alt=""></button>
                             </div>
                         </form>
@@ -33,11 +34,11 @@
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Liens </h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="team.html">Meet our team</a></li>
-                            <li><a href="blog.html">News & media</a></li>
-                            <li><a href="projects-page-1.html">Our projects</a></li>
-                            <li><a href="contact.html">Contacts</a></li>
+                            <li><a href="{{route('apropos')}}">A Propos de nous</a></li>
+                            <li><a href="{{route('nosservices')}}">Nos services</a></li>
+                            <li><a href="{{route('nosformations')}}">Nos Formations</a></li>
+                            <li><a href="{{route('blog')}}">Nos articles</a></li>
+                            <li><a href="{{route('contact')}}">Contacts</a></li>
                         </ul>
                     </div>
                 </div>

@@ -886,7 +886,7 @@ ul {
 
 .main-menu .main-menu__list>li>a,
 .stricky-header .main-menu__list>li>a {
-  font-size: 16px;
+  font-size: 17px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -897,7 +897,7 @@ ul {
   position: relative;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .main-menu .main-menu__list>li>a::before,

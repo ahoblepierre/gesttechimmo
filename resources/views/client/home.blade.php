@@ -25,7 +25,7 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-1-1.jpg);">
+                    <div class="image-layer" style="background-image: url({{asset('custom/bannire-1.jpg')}});">
                     </div>
                     <!-- /.image-layer -->
                     <div class="main-slider__shape-1">
@@ -41,9 +41,9 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
-                                    <p>It Software Solution &</p>
-                                    <h2>technology</h2>
-                                    <div class="main-slider__btn-video-box">
+                                    <p> L'Art de la Gestion Technique </p>
+                                    <h2>Immobilière</h2>
+                                    {{-- <div class="main-slider__btn-video-box">
                                         <div class="main-slider__btn-box">
                                             <a href="about.html" class="thm-btn main-slider__btn">Discover more</a>
                                         </div>
@@ -56,7 +56,7 @@
                                             </a>
                                             <h3 class="main-slider__video-text">Watch <br> how it works</h3>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-1-2.jpg);">
+                    <div class="image-layer" style="background-image: url({{ asset('custom/banniere-2.jpg')}});">
                     </div>
                     <!-- /.image-layer -->
                     <div class="main-slider__shape-1">
@@ -80,9 +80,9 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
-                                    <p>It Software Solution &</p>
-                                    <h2>technology</h2>
-                                    <div class="main-slider__btn-video-box">
+                                    <p> L'Art de la Gestion Technique</p>
+                                    <h2>Immobilière</h2>
+                                    {{-- <div class="main-slider__btn-video-box">
                                         <div class="main-slider__btn-box">
                                             <a href="about.html" class="thm-btn main-slider__btn">Discover more</a>
                                         </div>
@@ -95,7 +95,7 @@
                                             </a>
                                             <h3 class="main-slider__video-text">Watch <br> how it works</h3>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="image-layer" style="background-image: url(assets/images/backgrounds/main-slider-1-3.jpg);">
+                    <div class="image-layer" style="background-image: url({{asset('custom/banniere-3.jpg')}});">
                     </div>
                     <!-- /.image-layer -->
                     <div class="main-slider__shape-1">
@@ -119,9 +119,9 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider__content">
-                                    <p>It Software Solution &</p>
-                                    <h2>technology</h2>
-                                    <div class="main-slider__btn-video-box">
+                                    <p> L'Art de la Gestion Technique Immobilière.</p>
+                                    <h2>Immobilière.</h2>
+                                    {{-- <div class="main-slider__btn-video-box">
                                         <div class="main-slider__btn-box">
                                             <a href="about.html" class="thm-btn main-slider__btn">Discover more</a>
                                         </div>
@@ -134,7 +134,7 @@
                                             </a>
                                             <h3 class="main-slider__video-text">Watch <br> how it works</h3>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -345,29 +345,31 @@
                     </div>
                            
                        @endforeach --}}
-                       @foreach ($temoignages as $temoignage)
-                        <div class="testimonial-one__single">
-                            <div class="testimonial-one__top-content">
-                                <div class="testimonial-one__img">
-                                    <img src="{{$temoignage->iamge_url}}" alt="">
-                                </div>
-                                <div class="testimonial-one__content">
-                                    <p class="testimonial-one__text">{!! Str::words($temoignage->description, 35,'...') !!}</p>
-                                    <div class="testimonial-one__bottom-content">
-                                        <div class="testimonial-one__client-info">
-                                            <h5 class="testimonial-one__client-name">{{$temoignage->name}}</h5>
-                                            <p class="testimonial-one__client-company">{{$temoignage->profession}}</p>
-                                        </div>
-                                        <div class="testimonial-one__quote">
-                                            <img src="client/images/testimonial/testimonial-1-quote.png" alt="">
+                        @foreach ($temoignages as $temoignage)
+                            <div class="testimonial-one__single">
+                                <div class="testimonial-one__top-content">
+                                    <div class="testimonial-one__img">
+                                        <img src="{{ $temoignage->iamge_url }}" alt="">
+                                    </div>
+                                    <div class="testimonial-one__content">
+                                        <p class="testimonial-one__text">{!! Str::words($temoignage->description, 35, '...') !!}</p>
+                                        <div class="testimonial-one__bottom-content">
+                                            <div class="testimonial-one__client-info">
+                                                <h5 class="testimonial-one__client-name">{{ $temoignage->name }}</h5>
+                                                <p class="testimonial-one__client-company">{{ $temoignage->profession }}
+                                                </p>
+                                            </div>
+                                            <div class="testimonial-one__quote">
+                                                <img src="client/images/testimonial/testimonial-1-quote.png"
+                                                    alt="">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach 
+                        @endforeach
 
-                       
+
 
 
                     </div>
@@ -537,7 +539,7 @@
                                 <span class="icon-technical-support"></span>
                             </div>
                             <h3 class="odometer" data-count="2800">00</h3>
-                            <p class="counter-one__title">Problèmes  résolus</p>
+                            <p class="counter-one__title">Problèmes résolus</p>
                             {{-- <p class="counter-one__text">Lorem ipsum is simply free text used by refring.</p> --}}
                         </li>
                         <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
@@ -622,6 +624,4 @@
         </div>
     </section>
     <!--Blog One End-->
-
-
 @endsection

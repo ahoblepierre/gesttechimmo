@@ -6,10 +6,10 @@
                 <ul class="list-unstyled main-header__top-address">
                     <li>
                         <div class="icon">
-                            <span class="icon-pin"></span>
+                            <span class="icon-pin" ></span>
                         </div>
                         <div class="text">
-                            <p>66 broklyn golden street line. New York</p>
+                            <p style="font-size: 15px!important;font-weight: 500!important">66 broklyn golden street line. New York</p>
                         </div>
                     </li>
                     <li>
@@ -17,7 +17,7 @@
                             <span class="icon-email"></span>
                         </div>
                         <div class="text">
-                            <p><a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
+                            <p style="font-size: 15px!important;font-weight: 500!important"><a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
                         </div>
                     </li>
                 </ul>
@@ -25,9 +25,9 @@
             <div class="main-header__top-right">
                 <div class="main-header__top-right-content">
                     <ul class="list-unstyled main-header__top-right-menu">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Leadership</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a style="font-size: 15px!important;font-weight: 500!important" href="{{route('apropos')}}">A propos</a></li>
+                        <li><a style="font-size: 15px!important;font-weight: 500!important" href="{{route('nosservices')}}">Nos Services</a></li>
+                        <li><a style="font-size: 15px!important;font-weight: 500!important" href="{{route('contact')}}">Contact</a></li>
                     </ul>
                     <div class="main-header__top-right-social">
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -61,7 +61,7 @@
 
                         <li class="{{request()->routeIs('nosformations')?'current':''}}"><a href="{{route("nosformations")}}">Nos Formations</a></li>
 
-                        <li class="{{request()->routeIs('blog')|| request()->routeis('blog.detail') ?'current':''}}" ><a href="{{route("blog")}}">Blog</a></li>
+                        <li class="{{request()->routeIs('blog')|| request()->routeIs('blog.detail') ?'current':''}}" ><a href="{{route("blog")}}">Blog</a></li>
 
                         <li class="{{request()->routeIs('contact')?'current':''}}"><a href="{{route("contact")}}">Contact</a></li>
 
@@ -108,8 +108,8 @@
                             <img src="client/images/icon/main-menu-icon-comment.png" alt="">
                         </div>
                         <div class="main-menu__call-number">
-                            <p>Have any question?</p>
-                            <h5><a href="tel:926668880000"><span>Free</span> +98 (000)-9850</a></h5>
+                            <p>Avez-vous une question?</p>
+                            <h5><a href="tel:926668880000"> +98 (000)-9850</a></h5>
                         </div>
                     </div>
                     <div class="main-menu__search-box">
